@@ -3,8 +3,8 @@ name: Deploy
 on: [push]
 
 jobs:
-  permissions: write-all
   build:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Dashboard code
