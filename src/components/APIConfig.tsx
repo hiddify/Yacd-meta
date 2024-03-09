@@ -111,7 +111,7 @@ function APIConfig({ dispatch }) {
             name="baseURL"
             label="API Base URL"
             type="text"
-            placeholder="http://127.0.0.1:9090"
+            placeholder="http://127.0.0.1:6756"
             value={baseURL}
             onChange={handleInputOnChange}
           />
