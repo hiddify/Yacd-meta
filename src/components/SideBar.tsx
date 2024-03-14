@@ -52,13 +52,13 @@ interface SideBarRowProps {
 const pages = [
   {
     to: '/',
-    iconId: 'activity',
-    labelText: 'Overview',
-  },
-  {
-    to: '/proxies',
     iconId: 'globe',
     labelText: 'Proxies',
+  },
+  {
+    to: '/overview',
+    iconId: 'activity',
+    labelText: 'Overview',
   },
   {
     to: '/rules',
@@ -92,9 +92,10 @@ function SideBar(props: Props) {
   const { t } = useTranslation();
   const location = useLocation();
 
-  const { data: version } = useQuery(['/version', props.apiConfig], () =>
+  const {} = useQuery(['/version', props.apiConfig], () =>
     fetchVersion('/version', props.apiConfig)
   );
+
   return (
     <div className={s.root}>
       <div className={s.logo_hiddify} />

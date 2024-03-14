@@ -71,7 +71,7 @@ function Proxies({
   } = useStoreActions();
 
   const { t } = useTranslation();
-
+  groupNames = groupNames.filter((p) => !['auto', 'GLOBAL'].includes(p));
   return (
     <>
       <BaseModal isOpen={isSettingsModalOpen} onRequestClose={closeSettingsModal}>

@@ -13,7 +13,7 @@ type ProxyListProps = {
 };
 
 export function ProxyList({ all, now, isSelectable, itemOnTapCallback }: ProxyListProps) {
-  const proxies = all.filter((p,i)=>!["auto","GLOBAL"].includes(p));
+  const proxies = all;
 
   return (
     <div className={cx(s.list, s.detail)}>

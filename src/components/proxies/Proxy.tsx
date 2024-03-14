@@ -92,7 +92,7 @@ function ProxySmallImpl({
   const title = useMemo(() => {
     let ret = name;
     if (latency && typeof latency.number === 'number') {
-      ret += ' ' + latency.number + ' ms';
+      ret += latency.number < 65000 ? ': 🟢 ' + latency.number + ' ms' : ': 🔴';
     }
     return ret;
   }, [name, latency]);
@@ -163,6 +163,7 @@ function ProxyImpl({
   onClick,
 }: ProxyProps) {
   const delay = proxy.history[proxy.history.length - 1]?.delay;
+
   const latencyNumber = latency?.number ?? delay;
   const color = useMemo(
     () => getLabelColor({ number: latencyNumber }, httpsLatencyTest),
@@ -205,7 +206,7 @@ function ProxyImpl({
   const className = useMemo(() => {
     return cx(s0.proxy, {
       [s0.now]: now,
-      [s0.error]: latency && latency.error,
+      [s0.error]: (latency && latency.error) || delay > 65000,
       [s0.selectable]: isSelectable,
     });
   }, [isSelectable, now, latency]);

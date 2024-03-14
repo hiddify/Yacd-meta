@@ -8,9 +8,15 @@ type ProxyLatencyProps = {
 };
 
 export function ProxyLatency({ number, color }: ProxyLatencyProps) {
-  return (
+  if (number > 65000) {
     <span className={s0.proxyLatency} style={{ color }}>
-      <span>{number} ms</span>
-    </span>
-  );
+      <span>×</span>
+    </span>;
+  } else {
+    return (
+      <span className={s0.proxyLatency} style={{ color }}>
+        <span>{number} ms</span>
+      </span>
+    );
+  }
 }

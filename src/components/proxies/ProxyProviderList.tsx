@@ -6,6 +6,7 @@ import { FormattedProxyProvider } from '~/store/types';
 
 export function ProxyProviderList({ items }: { items: FormattedProxyProvider[] }) {
   if (items.length === 0) return null;
+  items = items.filter((p) => !['auto', 'GLOBAL'].includes(p.name));
   return (
     <>
       <ContentHeader title="Proxy Provider" />
