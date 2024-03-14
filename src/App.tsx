@@ -28,11 +28,11 @@ const Proxies = lazy(() => import('~/components/proxies/Proxies'));
 const Rules = lazy(() => import('~/components/Rules'));
 
 const routes = [
-  { path: '/', element: <Home /> },
+  { path: '/overview', element: <Home /> },
   { path: '/connections', element: <Connections /> },
   { path: '/configs', element: <Config /> },
   { path: '/logs', element: <Logs /> },
-  { path: '/proxies', element: <Proxies /> },
+  { path: '/', element: <Proxies /> },
   { path: '/rules', element: <Rules /> },
   { path: '/about', element: <About /> },
   process.env.NODE_ENV === 'development' ? { path: '/style', element: <StyleGuide /> } : false,
